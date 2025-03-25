@@ -1,37 +1,9 @@
-HELP.md
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
+# Excluir solo archivos sensibles
+src/main/resources/application-*.properties  # Excluye properties de otros entornos
+src/main/resources/*.jks                     # Excluye certificados
+src/main/resources/*.p12                     # Excluye claves
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
-.vscode/
+# Incluir explícitamente los archivos importantes
+!src/main/resources/application.properties
+!src/main/resources/static/
+!src/main/resources/templates/
