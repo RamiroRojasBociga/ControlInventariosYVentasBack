@@ -53,9 +53,12 @@ public class ProductoServiceImpl implements ProductoService {
     public Producto actualizarProducto(Long id, Producto producto) {
         Producto existente = obtenerPorId(id);
 
-        // Actualiza solo los campos no nulos
+        // Actualización de TODOS los campos
         if (producto.getNombre() != null) {
             existente.setNombre(producto.getNombre());
+        }
+        if (producto.getReferencia() != null) {  // Campo faltante
+            existente.setReferencia(producto.getReferencia());
         }
         if (producto.getValorCompra() != null) {
             existente.setValorCompra(producto.getValorCompra());
@@ -65,6 +68,12 @@ public class ProductoServiceImpl implements ProductoService {
         }
         if (producto.getAplicaGanancia() != null) {
             existente.setAplicaGanancia(producto.getAplicaGanancia());
+        }
+        if (producto.getCantidad() != null) {  // Campo faltante
+            existente.setCantidad(producto.getCantidad());
+        }
+        if (producto.getCategoria() != null) {  // Campo faltante
+            existente.setCategoria(producto.getCategoria());
         }
 
         return productoRepository.save(existente);
